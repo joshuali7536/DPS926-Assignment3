@@ -26,13 +26,13 @@ export class RestockPage implements OnInit {
   }
 
   addStock(){
-    if (this.addQty != null && this.addQty > 0){
+    if (this.addQty != null && this.addQty > 0 && this.currProductId != null){
       this.service.addStock(this.currProductId, this.addQty);
       this.presentAlert("Stock added", "Added " + this.addQty + " " + this.currProduct);
       this.addQty = 0;
     }
     else{
-      this.presentAlert("Error occurred", "Please try again.");
+      this.presentAlert("Missing input", "Please select an item and enter a quantity.");
     }
   }
 

@@ -30,7 +30,7 @@
     <ion-item *ngFor="let product of listOfProducts">
       <ion-label (click)="selectProduct(product.id)">
         <h2>{{product.name}}</h2>
-        <h3>{{product.qty}}</h3>
+        <h3>{{product.qty}} items</h3>
       </ion-label>
     </ion-item>
   </ion-list>

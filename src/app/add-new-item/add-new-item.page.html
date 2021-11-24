@@ -3,10 +3,38 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Add New Item</ion-title>
+    <ion-title>Add New Product</ion-title>
+
+    <ion-buttons slot="end">
+      <!-- <ion-button (click)="addProduct()"> -->
+      <ion-button (click)="authForm.valid && addProduct(authForm)">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form #authForm="ngForm" (ngSubmit)="addProduct(authForm)">
+    <ion-item>
+      <ion-label position="stacked">Product Name</ion-label>
+      <!-- <ion-input placeholder="Enter Product Name" [(ngModel)]="product.name"></ion-input> -->
+      <ion-input ngModel name="name" required placeholder="Enter Product Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Price</ion-label>
+      <!-- <ion-input placeholder="Enter Product Price" inputmode="numeric" type="number" [(ngModel)]="product.price"></ion-input> -->
+      <ion-input ngModel name="price" required placeholder="Enter Product Price" inputmode="numeric" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Quantity</ion-label>
+      <!-- <ion-input placeholder="Enter Product Quantity" inputmode="numeric" type="number" [(ngModel)]="product.qty"></ion-input> -->
+      <ion-input ngModel name="quantity" required placeholder="Enter Product Quantity" inputmode="numeric" type="number"></ion-input>
+    </ion-item>
 
+    <!-- <ion-button type="submit"  color="primary" expand="block">Add</ion-button> -->
+  </form>
 </ion-content>

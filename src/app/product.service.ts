@@ -60,4 +60,7 @@ export class ProductService {
     //console.log(prodHist);
     this.history.push(prodHist);
   }
+  getNewID(){
+    return (this.products.length).toString();
+  }
 }

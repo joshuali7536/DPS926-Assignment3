@@ -22,6 +22,10 @@ export class HomePage implements OnInit{
     this.listOfProducts = this.service.getAllProducts();
   }
 
+  ionViewWillEnter(){
+    this.listOfProducts = this.service.getAllProducts();
+  }
+
   selectProduct(id){
     this.currProductId = id;
     this.currProduct = this.listOfProducts[id].name;
