@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Restock</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Quantity</ion-label>
+    <ion-input placeholder="Enter a new quantity" inputmode="numeric" type="number" [(ngModel)]="addQty"></ion-input>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="medium" expand="block" (click)="addStock()">Restock</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="medium" expand="block">Cancel</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list >
+    <ion-list-header>
+      {{currProduct}}
+    </ion-list-header>
+
+    <ion-item *ngFor="let product of listOfProducts">
+      <ion-label (click)="selectProduct(product.id)">
+        <h2>{{product.name}}</h2>
+        <h3>{{product.qty}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

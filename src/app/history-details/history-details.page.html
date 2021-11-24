@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list >
+    <ion-item>
+      <ion-label>
+        <h2>{{history.name}}</h2>
+        <h3>Quantity Purchased: {{history.qty}}</h3>
+        <p>Date Purchased: {{history.dateOfPurchase | date:'short'}}</p>
+        <p>Total: {{history.total}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
