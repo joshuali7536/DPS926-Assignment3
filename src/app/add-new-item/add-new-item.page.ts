@@ -32,13 +32,11 @@ export class AddNewItemPage implements OnInit {
 
   addProduct(form: NgForm){
     if (form.valid){
-      console.log(form);
       this.product.id = this.service.getNewID();
       this.product.name = form.value.name;
       this.product.price = form.value.price;
-      this.product.qty = form.value.quantity;
+      this.product.qty = Math.trunc(form.value.quantity);
 
-      console.log(this.product);
       this.service.addProduct(this.product);
 
       this.presentAlert("Product Added", this.product.name + "(" + this.product.qty + ") added. Price: $" + this.product.price);

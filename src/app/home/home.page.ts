@@ -61,7 +61,8 @@ export class HomePage implements OnInit{
   }
 
   calculateTotal(){
-    this.currTotal = this.listOfProducts[this.currProductId].price * parseInt(this.currQty);
+    var unrounded = this.listOfProducts[this.currProductId].price * parseInt(this.currQty);
+    this.currTotal = Math.round((unrounded + Number.EPSILON) * 100) / 100;
   }
 
   makePurchase(){
