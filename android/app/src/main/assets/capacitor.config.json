@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.cashRegister",
+	"appName": "CashRegister",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
