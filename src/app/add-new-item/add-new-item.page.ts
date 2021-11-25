@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Product } from '../Product';
 import { ProductService } from '../product.service';
 
@@ -18,7 +17,7 @@ export class AddNewItemPage implements OnInit {
     qty: null
   }
 
-  constructor(private service: ProductService, private alertController : AlertController, private router: Router) { }
+  constructor(private service: ProductService, private alertController : AlertController, private nav: NavController) { }
 
   ngOnInit() {
   }
@@ -40,6 +39,7 @@ export class AddNewItemPage implements OnInit {
       this.service.addProduct(this.product);
 
       this.presentAlert("Product Added", this.product.name + "(" + this.product.qty + ") added. Price: $" + this.product.price);
+      this.nav.back();
     }
   }
 
@@ -50,5 +50,9 @@ export class AddNewItemPage implements OnInit {
       buttons: ['OK']
     })
     await alert.present();
+  }
+
+  cancel(){
+    this.nav.back();
   }
 }

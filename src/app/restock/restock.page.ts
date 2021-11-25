@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Product } from '../Product';
 import { ProductService } from '../product.service';
 
@@ -14,7 +14,7 @@ export class RestockPage implements OnInit {
   currProduct: string = "Select a Product";
   addQty: number;
 
-  constructor(private service: ProductService, private alertController : AlertController) { }
+  constructor(private service: ProductService, private alertController : AlertController, private nav: NavController) { }
 
   ngOnInit() {
     this.listOfProducts = this.service.getAllProducts();
@@ -43,5 +43,9 @@ export class RestockPage implements OnInit {
       buttons: ['OK']
     })
     await alert.present();
+  }
+
+  cancel(){
+    this.nav.back();
   }
 }
